@@ -1,4 +1,7 @@
+package pages;
+
 import com.codeborne.selenide.SelenideElement;
+import data.Data;
 
 import static com.codeborne.selenide.Selenide.$;
 

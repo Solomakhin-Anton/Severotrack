@@ -1,12 +1,26 @@
+import com.codeborne.selenide.logevents.SelenideLogger;
+import data.Data;
+import io.qameta.allure.selenide.AllureSelenide;
 import lombok.val;
 import org.testng.annotations.*;
+import pages.EntriesPage;
+import pages.LoginPage;
 
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.withText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class AppTest {
+
+    @BeforeMethod
+    static void setUpAll() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+    }
+
+    @AfterMethod
+    static void tearDownAll() {
+        SelenideLogger.removeListener("allure");
+    }
 
     @Test
     void shouldAddEntry() {
@@ -21,6 +35,13 @@ public class AppTest {
         addEntryPage.addAll(addInfo);
         $("#content").$(withText("Выберите entry для изменения")).shouldBe(visible);
         open("http://igorakintev.ru/blog/");
+        $$("#entries > h2").first().shouldHave(matchText(Data.getAddInfo().getTitle()));
+        back();
+        $("#content").$(withText("Выберите entry для изменения")).shouldBe(visible);
+        val entriesPage = new EntriesPage();
+        val confirmPage = entriesPage.deleteTitle();
+        confirmPage.successDelete();
+        $("body").shouldNotHave(matchText(Data.getAddInfo().getTitle()));
 
 
     }

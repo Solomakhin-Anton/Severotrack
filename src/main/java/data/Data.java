@@ -1,3 +1,5 @@
+package data;
+
 import lombok.Value;
 
 public class Data {
@@ -24,6 +26,6 @@ public class Data {
     }
 
     public static AddInfo getAddInfo() {
-        return new AddInfo("Title43565463456", "Slug43565463456", "Slug43565463456)", "Slug43565463456)");
+        return new AddInfo("Title43565463456", "Slug43565463456", "Slug43565463456", "Slug43565463456");
     }
 }
