@@ -1,0 +1,1 @@
+{"uuid":"0d5436f7-e060-4138-bc02-5f18204a639d","name":"FXTest.setUp","children":["3f7982c7-f103-4430-b392-79acb7256ce9"],"description":"","befores":[{"name":"setUp","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1605695619545,"stop":1605695622212}],"afters":[],"links":[],"start":1605695619545,"stop":1605695622213}

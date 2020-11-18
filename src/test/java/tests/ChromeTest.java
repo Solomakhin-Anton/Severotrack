@@ -1,3 +1,5 @@
+package tests;
+
 import com.codeborne.selenide.logevents.SelenideLogger;
 import data.Data;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -10,14 +12,14 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class AppTest {
+public class ChromeTest {
 
-    @BeforeMethod
+    @BeforeClass
     static void setUpAll() {
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
-    @AfterMethod
+    @AfterClass
     static void tearDownAll() {
         SelenideLogger.removeListener("allure");
     }
